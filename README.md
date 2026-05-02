@@ -1,5 +1,5 @@
 # Reason2Decide-C
-This repository contains the code and processed datasets accompanying our work on Reason2Decide-C
+This repository contains the code and processed datasets accompanying our work on Reason2Decide-C (https://www.mdpi.com/2073-431X/15/5/279)
 
 
 ## Datasets
@@ -87,6 +87,29 @@ torchrun --nproc_per_node=NUM_GPUS src/r2dc_stage2.py \
     --max_input_length MAX_INPUT_TOKENS
 ```
 
+---
+
+## Citation
+If you find this repository useful, please consider citing:
+
+```bash
+
+@Article{computers15050279,
+AUTHOR = {Hasan, H M Quamran and Babiker, Housam Khalifa Bashier and Kim, Mi-Young and Goebel, Randy},
+TITLE = {Reason2Decide-C: Adaptive Cycle-Consistent Training for Clinical Rationales},
+JOURNAL = {Computers},
+VOLUME = {15},
+YEAR = {2026},
+NUMBER = {5},
+ARTICLE-NUMBER = {279},
+URL = {https://www.mdpi.com/2073-431X/15/5/279},
+ISSN = {2073-431X},
+ABSTRACT = {Large Language Models (LLMs) used for clinical decision support must not only make accurate predictions but also generate rationales that are consistent with, and sufficient for, those predictions. Building on Reason2Decide, a two-stage rationale-driven multi-task framework, we propose Reason2Decide-C (R2D-C, where C denotes cycle consistency), which augments Reason2Decide’s stage 2 training with confidence-adaptive scheduled sampling and cycle-consistent rationale-to-label training. In stage 1, we pretrain our model on rationale generation. In stage 2, we jointlytrain on label prediction and rationale generation, gradually replacing gold labels with model-predicted labels based on confidence. Simultaneously, we feed the rationale logits back into the model to recover the label, thus enforcing explanation sufficiency. We evaluate R2D-C on one proprietary triage dataset, as well as public biomedical QA and reasoning datasets. Across model sizes, R2D-C substantially improves rationale–prediction consistency (where stage 1 and stage 2 predictions agree) and sufficiency (where the rationale alone recovers the ground-truth label) over other baselines while matching or modestly improving predictive performance (F1); in several settings R2D-C surpasses 40× larger foundation models. Ablations confirm that the full combination is optimal, maximizing alignment and LLM-as-a-Judge rationale quality. These results demonstrate that confidence-adaptive scheduled sampling and cycle-consistent rationale-to-label training substantially enhance explanation alignment without sacrificing accuracy.},
+DOI = {10.3390/computers15050279}
+}
+
+```
+---
 
 ## Dataset References
 
